@@ -1,0 +1,16 @@
+.day {
+  text-align: center;
+  height: 100%;
+  font-weight: bold;
+  padding-top: 10px;
+  box-sizing: border-box;
+
+  &--is-saturday {
+    background-color: #eee;
+  }
+
+  &--is-sunday {
+    background-color: #ddd;
+    color: indianred;
+  }
+}

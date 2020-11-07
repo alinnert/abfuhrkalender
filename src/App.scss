@@ -1,0 +1,18 @@
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 30px;
+  }
+
+  &__calendar {
+    height: 100%;
+  }
+}
