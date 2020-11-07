@@ -1,0 +1,15 @@
+.settings-group {
+  padding: 20px;
+  
+  &__title {
+    font-weight: 600;
+    color: white;
+  }
+
+  &__content {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}

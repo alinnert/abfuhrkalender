@@ -1,31 +1,30 @@
-import { atom, selector } from 'recoil'
+import { atom, selectorFamily } from 'recoil'
 
 export enum DisplayPage {
   first,
   second,
 }
 
-export const displayPageState = atom({
-  key: 'displayPageState',
-  default: DisplayPage.first,
-})
-
 const defaultYear = new Date().getFullYear()
+
+/** The selected year. */
 export const yearState = atom({ key: 'yearState', default: defaultYear })
 
-export const pageMonthsState = selector({
+/** An array of month indexes that should be displayed on one page. */
+const pageMonthsState = selectorFamily({
   key: 'pageMonthsState',
-  get: ({ get }) => {
-    return get(displayPageState) === DisplayPage.first
+  get: (displayPage: DisplayPage) => () => {
+    return displayPage === DisplayPage.first
       ? [0, 1, 2, 3, 4, 5]
       : [6, 7, 8, 9, 10, 11]
   },
 })
 
-export const pageDaysState = selector({
+/** All days to display for a given page. */
+export const pageDaysState = selectorFamily({
   key: 'pageDaysState',
-  get: ({ get }) => {
-    return get(pageMonthsState).map((monthIndex) => {
+  get: (displayPage: DisplayPage) => ({ get }) => {
+    return get(pageMonthsState(displayPage)).map((monthIndex) => {
       const dates: Date[] = []
       const date = new Date(get(yearState), monthIndex)
 

@@ -1,22 +1,28 @@
 import React, { Suspense } from 'react'
-import { useRecoilValue } from 'recoil'
 import './App.scss'
 import { Calendar } from './Calendar'
+import { CalendarFallback } from './components/CalendarFallback'
 import { Settings } from './components/Settings'
-import { yearState } from './states/calendar'
+import { DisplayPage } from './states/calendar'
 
 function App() {
-  const year = useRecoilValue(yearState)
-
   return (
     <div className="app">
-      <div className="app__header">
-        <div className="app__title">Abfuhrkalender {year}</div>
+      <div className="app__settings">
         <Settings />
       </div>
 
+      <div className="app__info">
+        Info: Im Drucken-Dialog 1) <em>Hintergrundgrafiken</em>{' '}
+        <strong>aktivieren</strong> und 2) <em>Kopf- und Fußzeilen</em>{' '}
+        <strong>deaktivieren</strong>
+      </div>
+
       <div className="app__calendar">
-        <Suspense fallback={'Wird geladen...'} children={<Calendar />} />
+        <Suspense fallback={<CalendarFallback />}>
+          <Calendar page={DisplayPage.first} />
+          <Calendar page={DisplayPage.second} />
+        </Suspense>
       </div>
     </div>
   )

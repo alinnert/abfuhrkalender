@@ -9,11 +9,11 @@ interface Props {
 export const Day = function day({ date, isHoliday }: Props) {
   return (
     <div
-      className={(`day ${date.getDay() === 0 ? 'day--is-sunday' : ''} ${
+      className={`day ${date.getDay() === 0 ? 'day--is-sunday' : ''} ${
         date.getDay() === 6 ? 'day--is-saturday' : ''
-      } ${isHoliday ? 'day--is-holiday' : ''}`).trim()}
+      } ${isHoliday ? 'day--is-holiday' : ''}`.trim()}
     >
-      {date.getDate()}
+      <div className="day__number">{date.getDate()}</div>
     </div>
   )
 }

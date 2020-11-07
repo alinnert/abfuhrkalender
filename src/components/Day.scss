@@ -1,9 +1,11 @@
 .day {
-  text-align: center;
-  height: 100%;
-  font-weight: bold;
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-sizing: border-box;
+  font-weight: bold;
+  height: 100%;
+  border: 1px solid #666666;
 
   &--is-saturday {
     background-color: #eee;
@@ -11,10 +13,24 @@
 
   &--is-sunday {
     background-color: #ddd;
-    color: indianred;
   }
 
-  &--is-holiday {
-    background-color: beige;
+  &__number {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    padding: 2px;
+  }
+  
+  &--is-sunday &__number {
+    color: crimson;
+  }
+
+  &--is-holiday &__number {
+    background-color: crimson;
+    color: white;
   }
 }

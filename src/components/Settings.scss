@@ -1,3 +1,11 @@
 .settings {
-  
+  display: flex;
+
+  @media print {
+    display: none;
+  }
+
+  &__info {
+    grid-row: 2;
+  }
 }
