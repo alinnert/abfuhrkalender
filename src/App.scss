@@ -1,21 +1,35 @@
 .app {
+  --app-hue: 340;
+
   height: 100vh;
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
 
-  &__settings {
-    background-color: #333333;
+  &__sidebar {
+    grid-column: 1;
+    width: 400px;
+    background-color: #eeeeee;
+
+    @media print {
+      display: none;
+    }
   }
 
-  &__info {
-    background: hsl(200 80 90);
-    padding: 10px 20px;
+  &__title {
+    padding: 20px;
+    font-size: 26px;
+    line-height: 1.3;
   }
+
+  // &__settings {}
 
   &__calendar {
-    height: 100%;
-
+    grid-column: 2;
+    box-sizing: border-box;
+    
     @media screen {
+      padding: 20px;
       overflow: auto;
     }
   }

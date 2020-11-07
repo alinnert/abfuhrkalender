@@ -7,6 +7,10 @@
   height: 100%;
   border: 1px solid #666666;
 
+  @media screen {
+    min-height: 80px;
+  }
+
   &--is-saturday {
     background-color: #eee;
   }

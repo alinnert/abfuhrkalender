@@ -8,14 +8,12 @@ import { DisplayPage } from './states/calendar'
 function App() {
   return (
     <div className="app">
-      <div className="app__settings">
-        <Settings />
-      </div>
+      <div className="app__sidebar">
+        <div className="app__title">Generator für Müllabfuhrkalender</div>
 
-      <div className="app__info">
-        Info: Im Drucken-Dialog 1) <em>Hintergrundgrafiken</em>{' '}
-        <strong>aktivieren</strong> und 2) <em>Kopf- und Fußzeilen</em>{' '}
-        <strong>deaktivieren</strong>
+        <div className="app__settings">
+          <Settings />
+        </div>
       </div>
 
       <div className="app__calendar">

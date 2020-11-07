@@ -3,13 +3,15 @@
   
   &__title {
     font-weight: 600;
-    color: white;
   }
 
-  &__content {
-    display: grid;
-    grid-auto-flow: column;
+  &__button-row {
+    display: flex;
     gap: 10px;
+    margin-top: 10px;
+  }
+
+  &__info {
     margin-top: 10px;
   }
 }
