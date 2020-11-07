@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useRecoilValue } from 'recoil'
 import './App.scss'
 import { Calendar } from './Calendar'
@@ -16,7 +16,7 @@ function App() {
       </div>
 
       <div className="app__calendar">
-        <Calendar />
+        <Suspense fallback={'Wird geladen...'} children={<Calendar />} />
       </div>
     </div>
   )

@@ -3,10 +3,12 @@ import { useRecoilValue } from 'recoil'
 import './Calendar.scss'
 import { Day } from './components/Day'
 import { pageDaysState, yearState } from './states/calendar'
+import { holidaysStringState } from './states/holidays'
 
 export const Calendar = function Calendar() {
   const pageDays = useRecoilValue(pageDaysState)
   const year = useRecoilValue(yearState)
+  const holidays = useRecoilValue(holidaysStringState)
 
   return (
     <div className="calendar">
@@ -27,7 +29,10 @@ export const Calendar = function Calendar() {
               className="calendar__day"
               style={{ gridRow: String(monthIndex * 2 + 2) }}
             >
-              <Day day={date} />
+              <Day
+                date={date}
+                isHoliday={holidays.includes(date.toDateString())}
+              />
             </div>
           ))}
         </Fragment>
