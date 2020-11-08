@@ -141,6 +141,9 @@ export const Settings = function Settings() {
           <li>
             Icons: <a href="https://icons.modulz.app/">Radix Icons</a>
           </li>
+          <li>
+            Feiertagsdaten: <a href="https://feiertage-api.de">feiertage-api.de</a>
+          </li>
         </ul>
       </SettingsGroup>
     </div>
