@@ -19,14 +19,19 @@
     background-color: #ddd;
   }
 
+  &--is-holiday {
+    border: 1px solid crimson;
+  }
+
   &__number {
     align-self: stretch;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    padding: 2px;
+    padding-top: 2px;
+    font-size: 18px;
+    line-height: 1;
   }
   
   &--is-sunday &__number {
@@ -34,6 +39,27 @@
   }
 
   &--is-holiday &__number {
+    background-color: crimson;
+    color: white;
+  }
+
+  &__weekday {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+    font-size: 14px;
+    line-height: 1;
+    color: #666666;
+  }
+
+  &--is-sunday &__weekday {
+    color: crimson;
+  }
+
+  &--is-holiday &__weekday {
     background-color: crimson;
     color: white;
   }

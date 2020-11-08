@@ -17,6 +17,9 @@ export const Day = function day({ date, isHoliday, litterTypes }: Props) {
       } ${isHoliday ? 'day--is-holiday' : ''}`.trim()}
     >
       <div className="day__number">{date.getDate()}</div>
+      <div className="day__weekday">
+        {date.toLocaleDateString('default', { weekday: 'short' })}
+      </div>
       <div className="day__litter-icons">
         {litterTypes.map((litterType) => (
           <LitterIcon type={litterType} />
