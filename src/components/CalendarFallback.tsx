@@ -1,9 +1,10 @@
 import React from 'react'
+import './CalendarFallback.scss'
 
 export function CalendarFallback() {
   return (
-    <div className="app__calendar-loader">
-      <div className="app__calendar-loader-indicator">
+    <div className="calendar-fallback">
+      <div className="calendar-fallback__indicator">
         Kalender wird erstellt...
       </div>
     </div>

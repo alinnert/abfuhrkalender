@@ -3,11 +3,12 @@ import { Button } from './Button'
 import './FileInput.scss'
 
 interface Props {
-  label: ReactNode
+  icon?: ReactNode
+  label: string
   onChange: (file: FileList | null) => void
 }
 
-export function FileInput({ label, onChange }: Props) {
+export function FileInput({ icon, label, onChange }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [filename, setFilename] = useState('')
 
@@ -34,7 +35,10 @@ export function FileInput({ label, onChange }: Props) {
         onChange={handleInputChange}
       />
 
-      <Button onClick={handleButtonClick}>{label}</Button>
+      <Button className="file-input__button" onClick={handleButtonClick}>
+        <span className="file-input__button-icon">{icon}</span>
+        <span className="file-input__button-label">{label}</span>
+      </Button>
 
       {filename !== '' ? (
         <div className="file-input__filename">

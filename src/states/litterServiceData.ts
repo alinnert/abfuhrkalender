@@ -23,6 +23,16 @@ function getLitterType(summary: string): LitterType | null {
   return null
 }
 
+export const selectedLitterTypesState = atom<LitterType[]>({
+  key: 'selectedLitterTypesState',
+  default: [
+    LitterType.residual,
+    LitterType.plastic,
+    LitterType.paper,
+    LitterType.bio,
+  ],
+})
+
 export const litterServiceFileState = atom<File | null>({
   key: 'litterServiceFileState',
   default: null,

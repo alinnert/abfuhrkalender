@@ -14,8 +14,10 @@ interface Props extends ChildrenProp, ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({ children, theme, ...props }: Props) {
   return (
     <button
-      className={`button ${theme === Theme.dark ? 'button--dark' : ''}`}
       {...props}
+      className={`button ${theme === Theme.dark ? 'button--dark' : ''} ${
+        props.className
+      }`}
     >
       {children}
     </button>

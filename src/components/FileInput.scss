@@ -7,6 +7,18 @@
     pointer-events: none;
   }
 
+  &__button {
+    text-align: left;
+  }
+
+  &__button-icon {
+    margin-right: 6px;
+  }
+
+  &__button-label {
+    vertical-align: middle;
+  }
+
   &__filename {
     margin-top: 10px;
     font-size: 14px;

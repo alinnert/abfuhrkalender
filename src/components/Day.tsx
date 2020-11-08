@@ -1,5 +1,9 @@
-import React from 'react'
-import { LitterType } from '../states/litterServiceData'
+import React, { useMemo } from 'react'
+import { useRecoilValue } from 'recoil'
+import {
+  LitterType,
+  selectedLitterTypesState
+} from '../states/litterServiceData'
 import './Day.scss'
 import { LitterIcon } from './LitterIcon'
 
@@ -9,7 +13,15 @@ interface Props {
   litterTypes: LitterType[]
 }
 
-export const Day = function day({ date, isHoliday, litterTypes }: Props) {
+export function Day({ date, isHoliday, litterTypes }: Props) {
+  const selectedLitterTypes = useRecoilValue(selectedLitterTypesState)
+
+  const litterIcons = useMemo(() => {
+    return litterTypes
+      .filter((litterType) => selectedLitterTypes.includes(litterType))
+      .map((litterType) => <LitterIcon key={litterType} type={litterType} />)
+  }, [litterTypes, selectedLitterTypes])
+
   return (
     <div
       className={`day ${date.getDay() === 0 ? 'day--is-sunday' : ''} ${
@@ -20,11 +32,7 @@ export const Day = function day({ date, isHoliday, litterTypes }: Props) {
       <div className="day__weekday">
         {date.toLocaleDateString('default', { weekday: 'short' })}
       </div>
-      <div className="day__litter-icons">
-        {litterTypes.map((litterType) => (
-          <LitterIcon key={litterType} type={litterType} />
-        ))}
-      </div>
+      <div className="day__litter-icons">{litterIcons}</div>
     </div>
   )
 }

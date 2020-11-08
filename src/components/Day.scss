@@ -5,21 +5,18 @@
   box-sizing: border-box;
   height: 100%;
   border: 1px solid #666666;
+  margin-left: -1px;
 
   @media screen {
     min-height: 80px;
   }
 
   &--is-saturday {
-    background-color: #eee;
+    background-color: hsl(200, 40%, 92%);
   }
 
   &--is-sunday {
-    background-color: #ddd;
-  }
-
-  &--is-holiday {
-    border: 1px solid crimson;
+    background-color: hsl(200, 40%, 85%);
   }
 
   &__number {
@@ -33,9 +30,14 @@
     font-weight: 600;
     line-height: 1;
   }
-  
+
+  &--is-saturday &__number {
+    background-color: hsla(0, 0%, 100%, 0.5);
+  }
+
   &--is-sunday &__number {
     color: crimson;
+    background-color: hsla(0, 0%, 100%, 0.5);
   }
 
   &--is-holiday &__number {
@@ -50,19 +52,28 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 2px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 1;
     letter-spacing: 1px;
     color: #666666;
   }
 
+  &--is-saturday &__weekday {
+    background-color: hsla(0, 0%, 100%, 0.5);
+  }
+
   &--is-sunday &__weekday {
     color: crimson;
+    background-color: hsla(0, 0%, 100%, 0.5);
   }
 
   &--is-holiday &__weekday {
     background-color: crimson;
     color: white;
+  }
+
+  &__litter-icons {
+    margin-top: 4px;
   }
 }
