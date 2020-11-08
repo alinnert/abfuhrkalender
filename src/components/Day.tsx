@@ -22,7 +22,7 @@ export const Day = function day({ date, isHoliday, litterTypes }: Props) {
       </div>
       <div className="day__litter-icons">
         {litterTypes.map((litterType) => (
-          <LitterIcon type={litterType} />
+          <LitterIcon key={litterType} type={litterType} />
         ))}
       </div>
     </div>
