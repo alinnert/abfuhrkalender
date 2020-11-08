@@ -1,14 +1,15 @@
-import React, { useRef } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 import { Button } from './Button'
 import './FileInput.scss'
 
 interface Props {
-  label: string
-  onChange: (file: File) => void
+  label: ReactNode
+  onChange: (file: FileList | null) => void
 }
 
 export function FileInput({ label, onChange }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [filename, setFilename] = useState('')
 
   function handleButtonClick() {
     if (inputRef.current === null) return
@@ -16,7 +17,12 @@ export function FileInput({ label, onChange }: Props) {
   }
 
   function handleInputChange() {
-
+    if (inputRef.current === null) return
+    onChange(inputRef.current.files)
+    const files = inputRef.current.files
+    setFilename(
+      files === null ? '' : [...files].map((file) => file.name).join(', ')
+    )
   }
 
   return (
@@ -27,7 +33,16 @@ export function FileInput({ label, onChange }: Props) {
         ref={inputRef}
         onChange={handleInputChange}
       />
+
       <Button onClick={handleButtonClick}>{label}</Button>
+
+      {filename !== '' ? (
+        <div className="file-input__filename">
+          <strong>Ausgewählte Datei:</strong>
+          <br />
+          {filename}
+        </div>
+      ) : null}
     </div>
   )
 }

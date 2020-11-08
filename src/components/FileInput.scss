@@ -6,4 +6,10 @@
     visibility: hidden;
     pointer-events: none;
   }
+
+  &__filename {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
 }

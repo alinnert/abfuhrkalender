@@ -1,11 +1,13 @@
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
+  FileIcon,
   InfoCircledIcon
 } from '@modulz/radix-icons'
 import React, { useMemo } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import { yearState } from '../states/calendar'
+import { litterServiceFileState } from '../states/litterServiceData'
 import { Button } from './Button'
 import { FileInput } from './FileInput'
 import './Settings.scss'
@@ -13,7 +15,17 @@ import { SettingsGroup } from './SettingsGroup'
 
 export const Settings = function Settings() {
   const [year, setYear] = useRecoilState(yearState)
+  const setLitterServiceFile = useSetRecoilState(litterServiceFileState)
+
   const currentYear = useMemo(() => new Date().getFullYear(), [])
+
+  function handleFileChange(files: FileList | null) {
+    if (files === null) return
+    if (files.length === 0) return
+    const file = files.item(0)
+    if (file === null) return
+    setLitterServiceFile(file)
+  }
 
   return (
     <div className="settings">
@@ -28,12 +40,33 @@ export const Settings = function Settings() {
           disabled={year === currentYear}
           onClick={() => setYear(currentYear)}
         >
-          Aktuelles Jahr ({currentYear})
+          Aktuelles Jahr
         </Button>
       </SettingsGroup>
 
-      <SettingsGroup title="Abfuhr-Daten">
-        <FileInput label="Datei öffnen..." onChange={() => {}} />
+      <SettingsGroup
+        title="Abfuhr-Daten"
+        info={
+          <p>
+            Abfuhr-Daten holen:
+            <br />
+            <a href="https://www.landkreis-kelheim.de/amt-service/onlineservices/abfallkalender/">
+              Abfallkalender Landkreis Kelheim
+            </a>
+          </p>
+        }
+      >
+        <FileInput
+          label={
+            <>
+              <FileIcon />
+              <span style={{ verticalAlign: 'middle', marginLeft: 8 }}>
+                Datei öffnen...
+              </span>
+            </>
+          }
+          onChange={handleFileChange}
+        />
       </SettingsGroup>
 
       <SettingsGroup
