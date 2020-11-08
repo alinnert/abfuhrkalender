@@ -5,7 +5,7 @@ import {
   InfoCircledIcon
 } from '@modulz/radix-icons'
 import React, { useMemo } from 'react'
-import { useRecoilState, useSetRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { yearState } from '../states/calendar'
 import { litterServiceFileState } from '../states/litterServiceData'
 import { Button } from './Button'
@@ -15,6 +15,7 @@ import { SettingsGroup } from './SettingsGroup'
 
 export const Settings = function Settings() {
   const [year, setYear] = useRecoilState(yearState)
+  const resetYear = useResetRecoilState(yearState)
   const setLitterServiceFile = useSetRecoilState(litterServiceFileState)
 
   const currentYear = useMemo(() => new Date().getFullYear(), [])
@@ -36,10 +37,7 @@ export const Settings = function Settings() {
         <Button onClick={() => setYear(year + 1)}>
           <ArrowRightIcon />
         </Button>
-        <Button
-          disabled={year === currentYear}
-          onClick={() => setYear(currentYear)}
-        >
+        <Button disabled={year === currentYear} onClick={resetYear}>
           Aktuelles Jahr
         </Button>
       </SettingsGroup>

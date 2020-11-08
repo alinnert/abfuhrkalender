@@ -11,11 +11,10 @@ export enum LitterType {
 
 export interface SimpleLitterServiceEntry {
   date: Date | null
-  type: LitterType | null
+  type: LitterType
 }
 
-function getLitterType(summary?: string): LitterType | null {
-  if (summary === undefined) return null
+function getLitterType(summary: string): LitterType | null {
   if (summary.startsWith('Restmüll')) return LitterType.residual
   if (summary.startsWith('Gelber Sack')) return LitterType.plastic
   if (summary.startsWith('Papierabfuhr')) return LitterType.paper
@@ -41,14 +40,23 @@ const litterServiceFileContentState = selector({
 
 export const litterServiceDataState = selector({
   key: 'litterServiceDataState',
-  get: ({ get }): SimpleLitterServiceEntry[] | null => {
+  get: ({ get }): Record<string, SimpleLitterServiceEntry[]> => {
     const fileContent = get(litterServiceFileContentState)
-    if (fileContent === null) return null
-    const entries = Object.values(ical.parseICS(fileContent))
+    if (fileContent === null) return {}
 
-    return entries.map((entry) => ({
-      date: entry.start ?? null,
-      type: getLitterType(entry.summary),
-    }))
+    const entries = Object.values(ical.parseICS(fileContent))
+    const litterServiceData: Record<string, SimpleLitterServiceEntry[]> = {}
+
+    for (const entry of entries) {
+      if (entry.start === undefined) continue
+      const key = entry.start.toDateString()
+      if (!Array.isArray(litterServiceData[key])) litterServiceData[key] = []
+      if (entry.summary === undefined) continue
+      const type = getLitterType(entry.summary)
+      if (type === null) continue
+      litterServiceData[key].push({ date: entry.start, type })
+    }
+
+    return litterServiceData
   },
 })
