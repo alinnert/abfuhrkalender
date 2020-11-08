@@ -28,6 +28,6 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: dev
-          BRANCH: master
+          BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
