@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.94710650.chunk.css",
-    "main.js": "/static/js/main.a2279568.chunk.js",
-    "main.js.map": "/static/js/main.a2279568.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8472e8e2.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8472e8e2.js.map",
-    "static/js/2.ad0cbdce.chunk.js": "/static/js/2.ad0cbdce.chunk.js",
-    "static/js/2.ad0cbdce.chunk.js.map": "/static/js/2.ad0cbdce.chunk.js.map",
-    "static/js/3.d50f62e3.chunk.js": "/static/js/3.d50f62e3.chunk.js",
-    "static/js/3.d50f62e3.chunk.js.map": "/static/js/3.d50f62e3.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.94710650.chunk.css.map": "/static/css/main.94710650.chunk.css.map",
-    "static/js/2.ad0cbdce.chunk.js.LICENSE.txt": "/static/js/2.ad0cbdce.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/static/media/Roboto-Regular.71779d80.ttf"
+    "main.css": "https://alinnert.github.io/abfuhrkalender/static/css/main.397ac99d.chunk.css",
+    "main.js": "https://alinnert.github.io/abfuhrkalender/static/js/main.a2279568.chunk.js",
+    "main.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/main.a2279568.chunk.js.map",
+    "runtime-main.js": "https://alinnert.github.io/abfuhrkalender/static/js/runtime-main.9869551a.js",
+    "runtime-main.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/runtime-main.9869551a.js.map",
+    "static/js/2.ad0cbdce.chunk.js": "https://alinnert.github.io/abfuhrkalender/static/js/2.ad0cbdce.chunk.js",
+    "static/js/2.ad0cbdce.chunk.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/2.ad0cbdce.chunk.js.map",
+    "static/js/3.d50f62e3.chunk.js": "https://alinnert.github.io/abfuhrkalender/static/js/3.d50f62e3.chunk.js",
+    "static/js/3.d50f62e3.chunk.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/3.d50f62e3.chunk.js.map",
+    "index.html": "https://alinnert.github.io/abfuhrkalender/index.html",
+    "static/css/main.397ac99d.chunk.css.map": "https://alinnert.github.io/abfuhrkalender/static/css/main.397ac99d.chunk.css.map",
+    "static/js/2.ad0cbdce.chunk.js.LICENSE.txt": "https://alinnert.github.io/abfuhrkalender/static/js/2.ad0cbdce.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "https://alinnert.github.io/abfuhrkalender/static/media/Roboto-Regular.71779d80.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.8472e8e2.js",
+    "static/js/runtime-main.9869551a.js",
     "static/js/2.ad0cbdce.chunk.js",
-    "static/css/main.94710650.chunk.css",
+    "static/css/main.397ac99d.chunk.css",
     "static/js/main.a2279568.chunk.js"
   ]
 }
