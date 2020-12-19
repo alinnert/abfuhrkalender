@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://alinnert.github.io/abfuhrkalender/static/css/main.397ac99d.chunk.css",
-    "main.js": "https://alinnert.github.io/abfuhrkalender/static/js/main.a2279568.chunk.js",
-    "main.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/main.a2279568.chunk.js.map",
+    "main.js": "https://alinnert.github.io/abfuhrkalender/static/js/main.62b59f18.chunk.js",
+    "main.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/main.62b59f18.chunk.js.map",
     "runtime-main.js": "https://alinnert.github.io/abfuhrkalender/static/js/runtime-main.9869551a.js",
     "runtime-main.js.map": "https://alinnert.github.io/abfuhrkalender/static/js/runtime-main.9869551a.js.map",
     "static/js/2.ad0cbdce.chunk.js": "https://alinnert.github.io/abfuhrkalender/static/js/2.ad0cbdce.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.9869551a.js",
     "static/js/2.ad0cbdce.chunk.js",
     "static/css/main.397ac99d.chunk.css",
-    "static/js/main.a2279568.chunk.js"
+    "static/js/main.62b59f18.chunk.js"
   ]
 }
