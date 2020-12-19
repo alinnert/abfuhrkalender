@@ -119,7 +119,8 @@ export const Settings = function Settings() {
 
       <SettingsGroup title="Fertig?">
         <p>
-          <InfoCircledIcon /> Im Drucken-Dialog:
+          <InfoCircledIcon /> <strong>Tipp</strong><br/>
+          Im Drucken-Dialog:
         </p>
         <ul>
           <li>
@@ -135,8 +136,7 @@ export const Settings = function Settings() {
       <SettingsGroup title="Über">
         <ul>
           <li>
-            Entwickelt von{' '}
-            <a href="https://github.com/alinnert">Andreas Linnert</a>
+            Source Code: <a href="https://github.com/alinnert/abfuhrkalender">GitHub</a>
           </li>
           <li>
             Icons: <a href="https://icons.modulz.app/">Radix Icons</a>
