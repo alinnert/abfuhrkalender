@@ -11,13 +11,13 @@ export const LitterIcon = memo(function LitterIcon({ type }: Props) {
       case LitterType.residual:
         return 'black'
       case LitterType.plastic:
-        return 'hsl(40, 80%, 45%)'
+        return 'hsl(45, 80%, 50%)'
       case LitterType.paper:
-        return 'blue'
+        return 'hsl(200, 80%, 50%)'
       case LitterType.bio:
-        return 'brown'
+        return 'hsl(20, 60%, 40%)'
       case LitterType.problem:
-        return 'crimson'
+        return 'hsl(0, 90%, 50%)'
     }
   }, [type])
 
