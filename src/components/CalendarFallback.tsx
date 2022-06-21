@@ -1,4 +1,3 @@
-import React from 'react'
 import './CalendarFallback.scss'
 
 export function CalendarFallback() {

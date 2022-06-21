@@ -1,9 +1,10 @@
-import React, { ReactNode, useRef, useState } from 'react'
+import { ReactElement, useRef, useState } from 'react'
 import { Button } from './Button'
 import './FileInput.scss'
+import { HeroIcon } from './HeroIcon'
 
 interface Props {
-  icon?: ReactNode
+  icon?: ReactElement
   label: string
   onChange: (file: FileList | null) => void
 }
@@ -36,7 +37,12 @@ export function FileInput({ icon, label, onChange }: Props) {
       />
 
       <Button className="file-input__button" onClick={handleButtonClick}>
-        <span className="file-input__button-icon">{icon}</span>
+        {icon !== undefined ? (
+          <span className="file-input__button-icon">
+            {<HeroIcon icon={icon} />}
+          </span>
+        ) : null}
+
         <span className="file-input__button-label">{label}</span>
       </Button>
 

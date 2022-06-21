@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import classNames from 'classnames'
+import { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 import { ChildrenProp } from '../jsx'
 import './Button.scss'
 
@@ -7,17 +8,27 @@ export enum Theme {
   dark,
 }
 
-interface Props extends ChildrenProp, ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends ChildrenProp {
   theme?: Theme
+  className?: string
+  onClick?: MouseEventHandler
+  buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>
 }
 
-export function Button({ children, theme, ...props }: Props) {
+export function Button({
+  children,
+  theme,
+  className,
+  onClick,
+  buttonProps,
+}: Props) {
   return (
     <button
-      {...props}
-      className={`button ${theme === Theme.dark ? 'button--dark' : ''} ${
-        props.className
-      }`}
+      {...buttonProps}
+      onClick={onClick}
+      className={classNames('button', className, {
+        'button--dark': theme === Theme.dark,
+      })}
     >
       {children}
     </button>

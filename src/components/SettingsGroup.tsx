@@ -1,4 +1,3 @@
-import React from 'react'
 import { ChildrenProp } from '../jsx'
 import './SettingsGroup.scss'
 

@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 import {
   LitterType,
-  selectedLitterTypesState
+  selectedLitterTypesState,
 } from '../states/litterServiceData'
 import './Day.scss'
 import { LitterIcon } from './LitterIcon'

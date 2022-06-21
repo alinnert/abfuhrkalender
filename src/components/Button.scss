@@ -1,5 +1,8 @@
 .button {
-  border: 1px solid hsl(0 0 80);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid hsl(0 0% 80%);
   background-color: #eeeeee;
   padding: 6px 12px;
   border-radius: 3px;
@@ -9,12 +12,17 @@
 
   &:disabled {
     border: 1px solid #eeeeee;
-    background-color: hsl(0 0 90);
-    color: #888888;
+    background-color: hsl(0 0% 85%);
+    color: hsl(0 0% 40%);
   }
 
   &:not(:disabled):hover {
-    background-color: hsl(0 0 90);
-    border: 1px solid hsl(0 0 60);
+    background-color: hsl(0 0% 90%);
+    border: 1px solid hsl(0 0% 60%);
+  }
+
+  &:not(:disabled):active {
+    background-color: hsl(0 0% 85%);
+    bottom: 1px solid hsl(0 0% 50%);
   }
 }

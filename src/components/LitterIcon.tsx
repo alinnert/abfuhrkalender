@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { LitterType } from '../states/litterServiceData'
 
 interface Props {

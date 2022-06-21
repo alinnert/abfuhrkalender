@@ -16,6 +16,13 @@
     }
   }
 
+  &:first-of-type &__header {
+    @media screen {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
   &__days {
     grid-row: 2;
     width: 100%;

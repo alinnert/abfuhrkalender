@@ -1,27 +1,23 @@
 import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  FileIcon,
-  InfoCircledIcon
-} from '@modulz/radix-icons'
-import React, { useMemo } from 'react'
-import {
-  useRecoilState,
-
-  useResetRecoilState,
-  useSetRecoilState
-} from 'recoil'
+  ArrowSmLeftIcon,
+  ArrowSmRightIcon,
+  DocumentSearchIcon,
+  InformationCircleIcon,
+  PrinterIcon,
+} from '@heroicons/react/solid'
+import { useMemo } from 'react'
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { yearState } from '../states/calendar'
 import {
   litterServiceFileState,
   LitterType,
-  selectedLitterTypesState
+  selectedLitterTypesState,
 } from '../states/litterServiceData'
 import { Button } from './Button'
 import { ButtonRow } from './ButtonRow'
 import { Checkbox } from './Checkbox'
 import { FileInput } from './FileInput'
-import './Settings.scss'
+import { HeroIcon } from './HeroIcon'
 import { SettingsGroup } from './SettingsGroup'
 
 export const Settings = function Settings() {
@@ -54,16 +50,33 @@ export const Settings = function Settings() {
 
   return (
     <div className="settings">
-      <SettingsGroup title={`Jahr: ${year}`}>
+      <SettingsGroup title={`Kalenderjahr: ${year}`}>
         <ButtonRow>
           <Button onClick={() => setYear(year - 1)}>
-            <ArrowLeftIcon />
+            <HeroIcon icon={<ArrowSmLeftIcon />} />
+            {year - 1}
           </Button>
           <Button onClick={() => setYear(year + 1)}>
-            <ArrowRightIcon />
+            {year + 1}
+            <HeroIcon icon={<ArrowSmRightIcon />} />
           </Button>
-          <Button disabled={year === currentYear} onClick={resetYear}>
-            Aktuelles Jahr
+        </ButtonRow>
+
+        <ButtonRow>
+          <Button
+            onClick={resetYear}
+            buttonProps={{ disabled: year === currentYear }}
+          >
+            Aktuelles Jahr ({currentYear})
+          </Button>
+        </ButtonRow>
+
+        <ButtonRow>
+          <Button
+            buttonProps={{ disabled: year === currentYear + 1 }}
+            onClick={() => setYear(currentYear + 1)}
+          >
+            Kommendes Jahr ({currentYear + 1})
           </Button>
         </ButtonRow>
       </SettingsGroup>
@@ -78,7 +91,7 @@ export const Settings = function Settings() {
         </p>
         <p>Aktuell werden nur iCal-Dateien (*.ics) unterstützt.</p>
         <FileInput
-          icon={<FileIcon />}
+          icon={<DocumentSearchIcon />}
           label="Datei auswählen..."
           onChange={handleFileChange}
         />
@@ -119,7 +132,9 @@ export const Settings = function Settings() {
 
       <SettingsGroup title="Fertig?">
         <p>
-          <InfoCircledIcon /> <strong>Tipp</strong><br/>
+          <HeroIcon icon={<InformationCircleIcon />} />
+          <strong>Tipp</strong>
+          <br />
           Im Drucken-Dialog:
         </p>
         <ul>
@@ -130,19 +145,24 @@ export const Settings = function Settings() {
             <em>Kopf- und Fußzeilen</em> <strong>deaktivieren</strong>
           </li>
         </ul>
-        <Button onClick={globalThis.print}>Drucken...</Button>
+        <Button onClick={globalThis.print}>
+          <HeroIcon icon={<PrinterIcon />} />
+          Drucken...
+        </Button>
       </SettingsGroup>
 
       <SettingsGroup title="Über">
         <ul>
           <li>
-            Source Code: <a href="https://github.com/alinnert/abfuhrkalender">GitHub</a>
+            Source Code:{' '}
+            <a href="https://github.com/alinnert/abfuhrkalender">GitHub</a>
           </li>
           <li>
-            Icons: <a href="https://icons.modulz.app/">Radix Icons</a>
+            Icons: <a href="https://heroicons.com">Heroicons</a>
           </li>
           <li>
-            Feiertagsdaten: <a href="https://feiertage-api.de">feiertage-api.de</a>
+            Feiertagsdaten:{' '}
+            <a href="https://feiertage-api.de">feiertage-api.de</a>
           </li>
         </ul>
       </SettingsGroup>
