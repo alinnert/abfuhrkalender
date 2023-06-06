@@ -1,11 +1,5 @@
-import {
-  ArrowSmLeftIcon,
-  ArrowSmRightIcon,
-  DocumentSearchIcon,
-  InformationCircleIcon,
-  PrinterIcon,
-} from '@heroicons/react/solid'
 import { useMemo } from 'react'
+import { ArrowSmallLeftIcon, ArrowSmallRightIcon, DocumentMagnifyingGlassIcon, InformationCircleIcon, PrinterIcon } from '@heroicons/react/20/solid'
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { yearState } from '../states/calendar'
 import {
@@ -53,12 +47,12 @@ export const Settings = function Settings() {
       <SettingsGroup title={`Kalenderjahr: ${year}`}>
         <ButtonRow>
           <Button onClick={() => setYear(year - 1)}>
-            <HeroIcon icon={<ArrowSmLeftIcon />} />
+            <HeroIcon icon={<ArrowSmallLeftIcon />} />
             {year - 1}
           </Button>
           <Button onClick={() => setYear(year + 1)}>
             {year + 1}
-            <HeroIcon icon={<ArrowSmRightIcon />} />
+            <HeroIcon icon={<ArrowSmallRightIcon />} />
           </Button>
         </ButtonRow>
 
@@ -91,7 +85,7 @@ export const Settings = function Settings() {
         </p>
         <p>Aktuell werden nur iCal-Dateien (*.ics) unterstützt.</p>
         <FileInput
-          icon={<DocumentSearchIcon />}
+          icon={<DocumentMagnifyingGlassIcon />}
           label="Datei auswählen..."
           onChange={handleFileChange}
         />
