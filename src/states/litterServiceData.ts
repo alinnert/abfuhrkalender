@@ -1,5 +1,7 @@
-import ical from 'ical'
+import ical from 'ical.js'
 import { atom, selector } from 'recoil'
+
+const { Component: ICalComponent, Event: ICalEvent } = ical
 
 export enum LitterType {
   residual,
@@ -51,22 +53,28 @@ const litterServiceFileContentState = selector({
 export const litterServiceDataState = selector({
   key: 'litterServiceDataState',
   get: ({ get }): Record<string, SimpleLitterServiceEntry[]> => {
+    const result: Record<string, SimpleLitterServiceEntry[]> = {}
+
     const fileContent = get(litterServiceFileContentState)
     if (fileContent === null) return {}
 
-    const entries = Object.values(ical.parseICS(fileContent))
-    const litterServiceData: Record<string, SimpleLitterServiceEntry[]> = {}
+    const events = new ICalComponent(ical.parse(fileContent))
+      .getAllSubcomponents('vevent')
+      .map((c) => new ICalEvent(c))
 
-    for (const entry of entries) {
-      if (entry.start === undefined) continue
-      const key = entry.start.toDateString()
-      if (!Array.isArray(litterServiceData[key])) litterServiceData[key] = []
-      if (entry.summary === undefined) continue
-      const type = getLitterType(entry.summary)
+    for (const event of events) {
+      const key = event.startDate.toJSDate().toDateString()
+
+      if (!Array.isArray(result[key])) {
+        result[key] = []
+      }
+
+      const type = getLitterType(event.summary)
       if (type === null) continue
-      litterServiceData[key].push({ date: entry.start, type })
+
+      result[key].push({ date: event.startDate.toJSDate(), type })
     }
 
-    return litterServiceData
+    return result
   },
 })

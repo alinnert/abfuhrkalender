@@ -5,6 +5,7 @@ import { holidaysStringState } from '../states/holidays'
 import { litterServiceDataState } from '../states/litterServiceData'
 import './Calendar.scss'
 import { Day } from './Day'
+import { log } from 'console'
 
 interface Props {
   page: DisplayPage
