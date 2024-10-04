@@ -1,12 +1,8 @@
 # Abfuhrkalender
 
-Ein Generator für Kalender mit Daten zur Müllabfuhr. Primär für private Zwecke.
+Ein Generator für Kalender mit Daten zur Müllabfuhr. Derzeit speziell für die ICAL-Dateien ausgelegt, die vom Landkreis Kelheim zur Verfügung gestellt werden.
 
 URL: https://alinnert.github.io/abfuhrkalender
-
-## Browser-Support
-
-Firefox wird derzeit **nicht** unterstützt. Das Print-spezifische CSS führt dort zu einem ungewünschten Ergebnis.
 
 ## Funktionsweise
 
@@ -17,5 +13,4 @@ Firefox wird derzeit **nicht** unterstützt. Das Print-spezifische CSS führt do
 
 [React](https://reactjs.org/) ‒
 [Recoil](https://recoiljs.org/) ‒
-[Radix Icons](https://icons.modulz.app/) ‒
-[Material Design Icons](https://materialdesignicons.com/)
+[Heroicons](https://heroicons.com/)
