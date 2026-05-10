@@ -1,9 +1,9 @@
 import { selector } from 'recoil'
-import { yearState } from './calendar'
+import { yearState } from './calendar.ts'
 
 const apiUrl = new URL('https://feiertage-api.de/api/')
 
-const ignoreHolidays = ['Augsburger Friedensfest', 'Buß- und Bettag']
+const ignoreHolidays = new Set(['Augsburger Friedensfest', 'Buß- und Bettag'])
 
 interface HolidayEntry {
   datum: string
@@ -22,7 +22,7 @@ export const holidaysState = selector({
     const data = (await result.json()) as Record<string, HolidayEntry>
 
     return Object.entries(data)
-      .filter(([key]) => !ignoreHolidays.includes(key))
+      .filter(([key]) => !ignoreHolidays.has(key))
       .map(([, value]) => new Date(value.datum))
   },
 })

@@ -3,9 +3,9 @@ import { useRecoilValue } from 'recoil'
 import {
   LitterType,
   selectedLitterTypesState,
-} from '../states/litterServiceData'
+} from '../states/litterServiceData.ts'
 import './Day.scss'
-import { LitterIcon } from './LitterIcon'
+import { LitterIcon } from './LitterIcon.tsx'
 
 interface Props {
   date: Date
@@ -13,7 +13,7 @@ interface Props {
   litterTypes: LitterType[]
 }
 
-export function Day({ date, isHoliday, litterTypes }: Props) {
+export function Day({ date, isHoliday, litterTypes }: Readonly<Props>) {
   const selectedLitterTypes = useRecoilValue(selectedLitterTypesState)
 
   const litterIcons = useMemo(() => {

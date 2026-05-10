@@ -1,25 +1,32 @@
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  DocumentMagnifyingGlassIcon,
+  InformationCircleIcon,
+  PrinterIcon,
+} from '@heroicons/react/20/solid'
 import { useMemo } from 'react'
-import { ArrowSmallLeftIcon, ArrowSmallRightIcon, DocumentMagnifyingGlassIcon, InformationCircleIcon, PrinterIcon } from '@heroicons/react/20/solid'
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
-import { yearState } from '../states/calendar'
+import { yearState } from '../states/calendar.ts'
 import {
   litterServiceFileState,
   LitterType,
   selectedLitterTypesState,
-} from '../states/litterServiceData'
-import { Button } from './Button'
-import { ButtonRow } from './ButtonRow'
-import { Checkbox } from './Checkbox'
-import { FileInput } from './FileInput'
-import { HeroIcon } from './HeroIcon'
-import { SettingsGroup } from './SettingsGroup'
+} from '../states/litterServiceData.ts'
+import { Button } from './Button.tsx'
+import { ButtonRow } from './ButtonRow.tsx'
+import { Checkbox } from './Checkbox.tsx'
+import { FileInput } from './FileInput.tsx'
+import { HeroIcon } from './HeroIcon.tsx'
+import './Settings.scss'
+import { SettingsGroup } from './SettingsGroup.tsx'
 
 export const Settings = function Settings() {
   const [year, setYear] = useRecoilState(yearState)
   const resetYear = useResetRecoilState(yearState)
   const setLitterServiceFile = useSetRecoilState(litterServiceFileState)
   const [selectedLitterTypes, setSelectedLitterTypes] = useRecoilState(
-    selectedLitterTypesState
+    selectedLitterTypesState,
   )
 
   const currentYear = useMemo(() => new Date().getFullYear(), [])
@@ -35,7 +42,7 @@ export const Settings = function Settings() {
   function handleSelectedLitterTypeChange(litterType: LitterType): void {
     if (selectedLitterTypes.includes(litterType)) {
       setSelectedLitterTypes(
-        selectedLitterTypes.filter((type) => type !== litterType)
+        selectedLitterTypes.filter((type) => type !== litterType),
       )
     } else {
       setSelectedLitterTypes([...selectedLitterTypes, litterType])
@@ -44,33 +51,36 @@ export const Settings = function Settings() {
 
   return (
     <div className="settings">
-      <SettingsGroup title={`Kalenderjahr: ${year}`}>
+      <SettingsGroup title="Kalenderjahr">
         <ButtonRow>
           <Button onClick={() => setYear(year - 1)}>
-            <HeroIcon icon={<ArrowSmallLeftIcon />} />
+            <HeroIcon icon={<ArrowLeftIcon />} />
             {year - 1}
           </Button>
+          <div className="settings__year">{year}</div>
           <Button onClick={() => setYear(year + 1)}>
             {year + 1}
-            <HeroIcon icon={<ArrowSmallRightIcon />} />
+            <HeroIcon icon={<ArrowRightIcon />} />
           </Button>
         </ButtonRow>
 
-        <ButtonRow>
+        <ButtonRow justifyButtons>
           <Button
             onClick={resetYear}
             buttonProps={{ disabled: year === currentYear }}
           >
-            Aktuelles Jahr ({currentYear})
+            {currentYear}
+            <br />
+            Dieses Jahr
           </Button>
-        </ButtonRow>
 
-        <ButtonRow>
           <Button
             buttonProps={{ disabled: year === currentYear + 1 }}
             onClick={() => setYear(currentYear + 1)}
           >
-            Kommendes Jahr ({currentYear + 1})
+            {currentYear + 1}
+            <br />
+            Kommendes Jahr
           </Button>
         </ButtonRow>
       </SettingsGroup>

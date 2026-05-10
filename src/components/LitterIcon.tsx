@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react'
-import { LitterType } from '../states/litterServiceData'
+import { LitterType } from '../states/litterServiceData.ts'
 
 interface Props {
   type: LitterType

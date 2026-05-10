@@ -1,6 +1,9 @@
 import classNames from 'classnames'
-import { ButtonHTMLAttributes, MouseEventHandler } from 'react'
-import { ChildrenProp } from '../jsx'
+import {
+  ButtonHTMLAttributes,
+  MouseEventHandler,
+  PropsWithChildren,
+} from 'react'
 import './Button.scss'
 
 export enum Theme {
@@ -8,7 +11,7 @@ export enum Theme {
   dark,
 }
 
-interface Props extends ChildrenProp {
+interface Props {
   theme?: Theme
   className?: string
   onClick?: MouseEventHandler
@@ -21,7 +24,7 @@ export function Button({
   className,
   onClick,
   buttonProps,
-}: Props) {
+}: PropsWithChildren<Props>) {
   return (
     <button
       {...buttonProps}

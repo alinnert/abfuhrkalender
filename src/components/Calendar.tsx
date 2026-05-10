@@ -1,11 +1,10 @@
 import { Fragment, memo } from 'react'
 import { useRecoilValue } from 'recoil'
-import { DisplayPage, pageDaysState, yearState } from '../states/calendar'
-import { holidaysStringState } from '../states/holidays'
-import { litterServiceDataState } from '../states/litterServiceData'
+import { DisplayPage, pageDaysState, yearState } from '../states/calendar.ts'
+import { holidaysStringState } from '../states/holidays.ts'
+import { litterServiceDataState } from '../states/litterServiceData.ts'
 import './Calendar.scss'
-import { Day } from './Day'
-import { log } from 'console'
+import { Day } from './Day.tsx'
 
 interface Props {
   page: DisplayPage
@@ -44,7 +43,7 @@ export const Calendar = memo<Props>(function Calendar({ page }) {
                   isHoliday={holidays.includes(date.toDateString())}
                   litterTypes={
                     litterServiceData[date.toDateString()]?.map(
-                      (it) => it.type
+                      (it) => it.type,
                     ) ?? []
                   }
                 />

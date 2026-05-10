@@ -1,9 +1,9 @@
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   border: 1px solid hsl(0 0% 80%);
-  background-color: #eeeeee;
   padding: 6px 12px;
   border-radius: 3px;
   font-weight: 600;
@@ -13,7 +13,7 @@
   &:disabled {
     border: 1px solid #eeeeee;
     background-color: hsl(0 0% 85%);
-    color: hsl(0 0% 40%);
+    color: hsl(0 0% 30%);
   }
 
   &:not(:disabled):hover {

@@ -7,7 +7,12 @@ interface Props {
   onChange?: (checked: boolean) => void
 }
 
-export function Checkbox({ label, name, checked = false, onChange }: Props) {
+export function Checkbox({
+  label,
+  name,
+  checked = false,
+  onChange,
+}: Readonly<Props>) {
   return (
     <div className="checkbox">
       <label className="checkbox__label">

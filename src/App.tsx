@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
 import './App.scss'
-import { Calendar } from './components/Calendar'
-import { CalendarFallback } from './components/CalendarFallback'
-import { Settings } from './components/Settings'
-import { DisplayPage } from './states/calendar'
+import { Calendar } from './components/Calendar.tsx'
+import { CalendarFallback } from './components/CalendarFallback.tsx'
+import { Settings } from './components/Settings.tsx'
+import { DisplayPage } from './states/calendar.ts'
 
 function App() {
   return (

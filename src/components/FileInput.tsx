@@ -1,7 +1,7 @@
 import { ReactElement, useRef, useState } from 'react'
-import { Button } from './Button'
+import { Button } from './Button.tsx'
 import './FileInput.scss'
-import { HeroIcon } from './HeroIcon'
+import { HeroIcon } from './HeroIcon.tsx'
 
 interface Props {
   icon?: ReactElement
@@ -9,7 +9,7 @@ interface Props {
   onChange: (file: FileList | null) => void
 }
 
-export function FileInput({ icon, label, onChange }: Props) {
+export function FileInput({ icon, label, onChange }: Readonly<Props>) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [filename, setFilename] = useState('')
 
@@ -23,7 +23,7 @@ export function FileInput({ icon, label, onChange }: Props) {
     onChange(inputRef.current.files)
     const files = inputRef.current.files
     setFilename(
-      files === null ? '' : [...files].map((file) => file.name).join(', ')
+      files === null ? '' : [...files].map((file) => file.name).join(', '),
     )
   }
 
